@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:macro name="body">
+        <link name="base_link">
+            <visual>
+                <geometry>
+                    <mesh filename="package://car_description/meshes/body.dae"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0.0256" rpy="0 0 0"/>
+                <geometry>
+                    <box size="0.380 0.120 0.072"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <mass value="3.3"/>
+                <inertia ixx="0.005386" ixy="0.000000" ixz="0.00000"
+                                        iyy="0.041136" iyz="0.00000"
+                                                       izz="0.04367"/>
+            </inertial>
+        </link>
+    </xacro:macro>
+</robot>

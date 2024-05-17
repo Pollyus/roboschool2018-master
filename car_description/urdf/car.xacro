@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="6wd">
+    <xacro:include filename="left_right.xacro"/>
+    <xacro:include filename="body.xacro"/>
+    <xacro:include filename="wheel.xacro"/>
+    <xacro:include filename="camera.xacro"/>
+
+    <!-- properies -->
+    <xacro:property name="wheel_stride" value="0.150" />    
+    <xacro:property name="camera_size" value="0.03" />
+
+    <!-- main body -->
+    <xacro:body/>
+
+    <!-- 6 wheels -->
+    <xacro:wheel parent="base_link" side="left"  x_pos="${-wheel_stride}" name="wheel_1_left"  z_offset="0.001"/>
+    <xacro:wheel parent="base_link" side="right" x_pos="${-wheel_stride}" name="wheel_1_right" z_offset="0.001"/>
+    <xacro:wheel parent="base_link" side="left"  x_pos="0"                name="wheel_2_left"  z_offset="0"/>
+    <xacro:wheel parent="base_link" side="right" x_pos="0"                name="wheel_2_right" z_offset="0"/>
+    <xacro:wheel parent="base_link" side="left"  x_pos="${wheel_stride}"  name="wheel_3_left"  z_offset="0.001"/>
+    <xacro:wheel parent="base_link" side="right" x_pos="${wheel_stride}"  name="wheel_3_right" z_offset="0.001"/>
+    
+    <!-- RGB monocular camera -->
+    <xacro:my_camera/>
+
+    <gazebo>
+        <plugin name="car_plugin" filename="libcar_plugin.so">
+            <p>0.2</p>
+            <i>0.0</i>
+            <d>0.0</d>
+            <max_velocity>17.0</max_velocity>
+        </plugin>        
+    </gazebo>
+</robot>

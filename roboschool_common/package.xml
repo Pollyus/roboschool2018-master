@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>roboschool_common</name>
+  <version>0.0.0</version>
+  <description>Common launch files and scripts for roboschool-2018</description>
+
+  <maintainer email="markovalex95@gmail.com">Markov Alexey</maintainer>
+  <license>TODO</license>
+  <author email="markovalex95@gmail.com">Markov Alexey</author>  
+
+
+  <buildtool_depend>catkin</buildtool_depend>  
+  <depend>roscpp</depend>
+  <depend>rospy</depend>
+  <depend>car_msgs</depend>    
+
+  <export>
+  </export>
+</package>

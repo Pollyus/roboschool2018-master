@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>    
+    <arg name="filename"/>
+    <arg name="model" default="car"/>
+    <arg name="x" default="0"/>
+    <arg name="y" default="0"/>
+    <arg name="z" default="1"/>
+    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(arg filename)'"/>
+    <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+          args="-urdf -model '$(arg model)' -x '$(arg x)' -y '$(arg y)' -z '$(arg z)' -param robot_description"/> 
+</launch>
